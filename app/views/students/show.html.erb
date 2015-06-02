@@ -1,0 +1,28 @@
+<h1><%= @student.full_name %></h1>
+
+<div> <%= link_to "Edit Student", edit_student_path(@student) %> </div>
+<div> <%= link_to "Delete Student", student_path(@student),
+          data: { confirm: 'Are you sure?'}, :method => :delete %> </div>
+
+
+
+<h2>Lectures</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Subject
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <div>
+      <ul>
+        <% @student.lectures.each do |lecture|%>
+        <li><%= lecture.subject %></li>
+        <% end %>
+      </ul>
+    </div>
+  </tbody>
+</table>
