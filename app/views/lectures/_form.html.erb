@@ -1,0 +1,18 @@
+<%= form_for [@instructor, @lecture] do |f| %>
+
+<% if f.object.errors.any? %>
+  <ul class="errors">
+    <% f.object.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= f.collection_select :instructor_id, Instructor.all, :id, :full_name, { prompt: 'All Instructors'} %><br><br>
+<%= f.collection_select :student_id, Student.all, :id, :full_name, { prompt: 'All Students'} %><br><br>
+
+<%= f.label :subject %>
+<%= f.text_field :subject %><br><br>
+
+<%= f.submit 'Submit' %>
+<% end %>

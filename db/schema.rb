@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20150602155157) do
     t.integer "student_id"
   end
 
+  add_index "lectures", ["instructor_id"], name: "index_lectures_on_instructor_id", using: :btree
+  add_index "lectures", ["student_id"], name: "index_lectures_on_student_id", using: :btree
+
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"

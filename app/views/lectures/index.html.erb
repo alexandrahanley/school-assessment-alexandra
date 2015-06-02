@@ -1,0 +1,10 @@
+<h1>All Lectures</h1>
+
+<%= link_to "See All Students", students_path %><br>
+<%= link_to "See All Instructors", instructors_path %><br><br>
+
+<%= link_to "+ Lecture", new_lecture_path %>
+<% @lectures.each do |lecture| %>
+<p><%= link_to lecture.instructor.full_name, @instructor %><br>
+<%= link_to lecture.subject, lecture_path(lecture) %></p>
+<% end %>

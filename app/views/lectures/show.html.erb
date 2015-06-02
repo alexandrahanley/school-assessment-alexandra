@@ -1,0 +1,28 @@
+<h1><%= @lecture.instructor.full_name %></h1>
+
+<div> <%= link_to "Edit Lecture", edit_lecture_path(@lecture) %> </div>
+<div> <%= link_to "Delete Lecture", lecture_path(@lecture),
+          data: { confirm: 'Are you sure?'}, :method => :delete %> </div>
+
+
+
+<h2>Students</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <div>
+      <ul>
+        <% @lecture.students.each do |student|%>
+        <li><%= student.full_name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </tbody>
+</table>
