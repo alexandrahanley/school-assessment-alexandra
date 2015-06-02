@@ -1,0 +1,6 @@
+<h1>All Instructors</h1>
+
+<%= link_to "+ Instructor", new_instructor_path %>
+<% @instructors.each do |instructor| %>
+  <p><%= link_to instructor.full_name, instructor_path(instructor) %></p>
+<% end %>
